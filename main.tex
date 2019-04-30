@@ -1,0 +1,227 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Einstellungen/Vorgaben %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Basics
+\documentclass[ngerman, a4paper, 12pt, oneside, pdftex]{report}
+
+% UTF-8 codierung verwenden
+\usepackage[utf8]{inputenc}
+
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+% Nützliche Packages
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % Vektor-Schriftart
+\usepackage{geometry} % Seitenränder
+\usepackage{graphicx} % Grafiken
+\usepackage{caption} % Bildunterschriften etc.
+\usepackage{acronym} % Abkürzungen
+\usepackage{listings} % Listenverzeichnis
+\usepackage{color} % Benutzerdefinierte Farben
+\usepackage{csquotes}
+\usepackage{svg} % Vektor-Grafiken
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage[htt]{hyphenat}
+\usepackage{scrextend}
+\usepackage[bottom]{footmisc}
+\usepackage[german]{babel}
+%\usepackage[backend=biber,maxcitenames=3,hyperref=true,bibencoding=inputenc,style=alphabetic,citestyle=alphabetic]{biblatex} % Literaturverzeichnis
+\usepackage{setspace}
+%\usepackage[nottoc, notlof, notlot]{tocbibind}
+\usepackage[headsepline]{scrpage2} % Kopf- und Fusszeilen
+
+% Farben
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% Code-Embedding
+\lstset{frame=single,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  keepspaces=true,
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+% Sprache
+\selectlanguage{german}
+
+% Seitenränder
+\geometry{left=25mm, right=25mm, top=25mm, bottom=25mm} % bindingoffset=5mm
+
+\setlength{\headheight}{1.1\baselineskip}
+
+% Zeilenabstand 1.5
+\onehalfspacing
+
+% Caption Setup
+\captionsetup{labelfont=bf, textfont=normalfont}
+
+% Verfasser
+\newcommand{\Autor}{Jakob Gietl und Fynn Arnold}
+\newcommand{\Kurs}{TINF17B3}
+
+% Arbeit
+\newcommand{\ArbeitTitel}{Implementierung eines PIC-Simulators in Java}
+\newcommand{\ArbeitZeitraum}{?? Wochen}
+\newcommand{\ArbeitAbgabeDatum}{??.??.????}
+
+% Hochschule
+\newcommand{\DHName}{Duale Hochschule Baden-Württemberg}
+\newcommand{\DHStadt}{Karlsruhe}
+\newcommand{\DHStudiengang}{Informationstechnik}
+\newcommand{\DHTitelseiteLogo}{\includegraphics[width=4cm]{img/dhbw-logo.png}}
+
+% Eigene Befehle
+\newcommand{\todo}[1]{\begin{tcolorbox}[colback=green,colframe=black,boxrule=1pt,left=0pt,right=0pt,top=0pt,bottom=0pt,sharp corners]\small{\textit{\textbf{TODO:} #1}}\end{tcolorbox}}
+\newcommand{\descr}[2]{\noindent \textbf{#1} \begin{addmargin}[10mm]{0mm} #2 \end{addmargin} \vskip 12pt}
+\newcommand{\source}[1]{\caption*{\textbf{Quelle:} #1}}
+   
+% Line Breaks
+%\def\UrlBreaks{\do\/\do-}
+%\setcounter{biburllcpenalty}{9000}% Kleinbuchstaben
+%\setcounter{biburlucpenalty}{9000}% Großbuchstaben
+
+% Literaturverzeichnis
+%\addbibresource{./Anhang/Literaturverzeichnis.bib}
+
+\usepackage[pdftex,
+            pdfauthor={\Autor},
+            pdftitle={\ArbeitTitel}]{hyperref}
+
+% Kopfzeile
+\pagestyle{scrheadings}
+\clearscrheadfoot
+
+\setheadsepline{0.4pt}
+\automark[section]{chapter}
+\ihead{\headmark}
+\ohead{\leftmark}
+
+\newcounter{savepage} % Seitenzahl
+
+\begin{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Titelseite %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{pageanchor=false}
+
+\begin{onehalfspacing}
+\begin{titlepage}
+\begin{center}
+\vspace*{-2cm}
+\hfill
+\DHTitelseiteLogo \\
+\hfill
+\\[40mm]
+{\Huge \mbox{\ArbeitTitel}}\\[20mm]
+{\large \DHName \ \DHStadt}\\[5mm]
+{\large Studiengang \DHStudiengang}\\[20mm]
+{\large\bfseries \Autor}\\[5mm]
+{\large Kurs \Kurs}
+\vfill
+\end{center}
+
+\begin{tabular}{l@{\hspace{15mm}}l}
+Abgabedatum		& \ArbeitAbgabeDatum \\
+Bearbeitungszeitraum	& \ArbeitZeitraum
+\end{tabular}
+\end{titlepage}
+\end{onehalfspacing}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Verzeichnisse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\cfoot[\pagemark]{\pagemark} % Fußzeile mit Seitennummer
+\pagenumbering{Roman} % Römische Nummerierung
+
+\begin{singlespace}
+
+% Inhaltsverzeichnis
+\tableofcontents
+\noindent Hier wird das Inhaltsverzeichnis stehen!
+
+% Abbildungsverzeichnis
+\listoffigures
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+\noindent Hier wird das Abbildungsverzeichnis stehen!
+
+% Tabellenverzeichnis
+\listoftables
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+\noindent Hier wird das Tabellenverzeichnis stehen!
+
+
+\end{singlespace}
+
+% Quellcodeverzeichnis
+\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
+\lstlistoflistings % Quellcodeverzeichnis
+\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
+
+
+\newpage
+\hypersetup{pageanchor=true}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Kapitel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{savepage}{\value{page}}
+\pagenumbering{arabic}
+
+\LaTeX
+
+% Kapitel 1: Einleitung
+%\input{chapter1.tex}
+
+% Kapitel 2: Grundlagen
+%\input{chapter2.tex}
+
+% Kapitel 3: Planung
+%\input{chapter3.tex}
+
+% Kapitel 4: Realisierung
+%\input{chapter4.tex}
+
+% Kapitel 5: Fazit
+%\input{chapter5.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Literaturverzeichnis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newpage
+%\pagestyle{empty}
+%\pagenumbering{Roman} \setcounter{page}{\value{savepage}}
+
+
+%\renewcommand{\bibname}{Literaturverzeichnis}
+%\addcontentsline{toc}{chapter}{\bibname}
+%\printbibliography
+%\noindent Hier wird das Literaturverzeichnis (auch mit Titel) stehen!
+
+%\newpage\null\thispagestyle{empty}\newpage % leere Seite
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ende des Dokuments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
