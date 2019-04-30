@@ -1,6 +1,6 @@
 # PICsimuDOC
 
-PICsimuDOC ist die Dokumentation zum Projekt [PICsimu](https://github.com/teamwaldstadt/PICsimu), welches im Rahmen der Vorlesung "Systemnahe Programmierung 2" an der [DHBW Karlsruhe](https://www.karlsruhe.dhbw.de/startseite.html) enststanden ist
+PICsimuDOC ist die Dokumentation zum Java-Projekt [PICsimu](https://github.com/teamwaldstadt/PICsimu), welches im Rahmen der Vorlesung "Systemnahe Programmierung 2" an der [DHBW Karlsruhe](https://www.karlsruhe.dhbw.de/startseite.html) enststanden ist.
 
 ## Compiling / Building
 
