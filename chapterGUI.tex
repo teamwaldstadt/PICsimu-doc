@@ -1,0 +1,15 @@
+Die Benutzeroberfläche
+
+Die Benutzeroberfläche enthält zur einfacheren Bedienung eine Menüleiste am oberen Rand. In ihr zu finden sind Einstellungsknöpfe, um beispielsweise eine Datei zu öffnen, das Programm zu beenden oder auch der Dark-Mode Schalter. Des weiteren befinden sich Infoknöpfe wie die Lizenzanzeige und der Link zur Dokumentation in der Menüleiste. 
+
+Die grafische Oberfläche lässt sich nun aufteilen in 5 Bereiche: 
+- In der linken, oberen Hälfte sieht man alle wichtigen Spezial-Register. Neben den Ports, dem Status-Register und dem Option-Register ist hier auch das W-Register, der Program-Counter (PC) und das IntCon-Register zu finden. Um einen möglichen Stack-Overflow anzuzeigen wurde zusätzlich die aktuelle Stacksize als Dezimalwert in diesen Bereich implementiert. 
+- Oben in der Mitte sind wichtige Einstellungen in Bezug auf die Frequenz dargestellt. Die Quartz-Frequenz und die Laufzeit (nicht einstellbar) und ein Ein-und-Aus-Schalter des Watchdog-Timers werden hier angezeigt. Außerdem befindet sich in diesem Feld ein Bereich mit Einstellungsmöglichkeiten zu einem externen Takt-Generator. 
+- Am rechten, oberen Rand befindet sich eine Tabelle zur Darstellung des Speichers. Die Werte sind direkt editierbar und werden als Hex-Zahl dargestellt. 
+- Im unteren Bereich ist der Programmcode zu finden, welcher automatisch mitscrollt. Die aktuelle Zeile wird in einem auffallenden Farbton hervorgehoben. Die linke Spalte der Code-Anzeige erlaubt zusätzlich die Einstellung von Breakpoints zum einfacheren Debuggen. 
+
+Bei Anwendung des Dark-Modes über die Menüleiste bekommen alle Felder einen dunklen Hintergrund und eine weiße Schriftfarbe. Je nach Vorliebe kann der Benutzer sich seine präferierte Darstellung auswählen. 
+
+Die grafische Oberfläche ist außerdem 'full-responsive', d.h. das Fenster kann beliebig vergrößert, und durch eingefügte Scrollbalken auch verkleinert werden, ohne dass die Oberfläche leere oder überlappende Bereiche enthält oder an Funktionialität verliert. 
+Einige Einstellungsmöglichkeiten wurden zusätzlich mit Hover-Tooltip-Texten versehen, sodass auch zu lange Code-Kommentare, die Speicher-Adressen und die Laufzeit pro Befehl dargestellt werden können. 
+
