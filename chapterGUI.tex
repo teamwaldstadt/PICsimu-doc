@@ -1,15 +1,33 @@
 \chapter{Die Benutzeroberfläche}
-\section{Struktur}
+\section{Aufbau}
 Die Benutzeroberfläche enthält zur einfacheren Bedienung eine Menüleiste am oberen Rand. In ihr zu finden sind Einstellungsknöpfe, um beispielsweise eine Datei zu öffnen, das Programm zu beenden oder auch der Dark-Mode Schalter. Des weiteren befinden sich Infoknöpfe wie die Lizenzanzeige und der Link zur Dokumentation in der Menüleiste. 
 
-\noindent Die grafische Oberfläche lässt sich aufteilen in 5 Bereiche: 
+\noindent Die grafische Oberfläche (dargestellt in Abbildung \ref{gui})lässt sich aufteilen in 5 Bereiche: 
 \begin{itemize}
 \item In der linken, oberen Hälfte sieht man alle wichtigen Spezial-Register. Neben den Ports, dem Status-Register und dem Option-Register ist hier auch das W-Register, der Program-Counter (PC) und das IntCon-Register zu finden. Um einen möglichen Stack-Overflow anzuzeigen wurde zusätzlich die aktuelle Stacksize als Dezimalwert in diesen Bereich implementiert. 
 \item Oben in der Mitte sind wichtige Einstellungen in Bezug auf die Frequenz dargestellt. Die Quartz-Frequenz und die Laufzeit (nicht einstellbar) und ein Ein-und-Aus-Schalter des Watchdog-Timers werden hier angezeigt. Außerdem befindet sich in diesem Feld ein Bereich mit Einstellungsmöglichkeiten zu einem externen Takt-Generator. 
 \item Am rechten, oberen Rand befindet sich eine Tabelle zur Darstellung des Speichers. Die Werte sind direkt editierbar und werden als Hex-Zahl dargestellt. 
 \item Im unteren Bereich ist der Programmcode zu finden, welcher automatisch mitscrollt. Die aktuelle Zeile wird in einem auffallenden Farbton hervorgehoben. Die linke Spalte der Code-Anzeige erlaubt zusätzlich die Einstellung von Breakpoints zum einfacheren Debuggen. 
 \end{itemize}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/gui}
+	\caption{Die Oberfläche der Anwendung}
+	\label{gui}
+\end{figure}
 Bei Anwendung des Dark-Modes über die Menüleiste bekommen alle Felder einen dunklen Hintergrund und eine weiße Schriftfarbe. Je nach Vorliebe kann der Benutzer sich seine präferierte Darstellung auswählen. Die grafische Oberfläche ist außerdem 'full-responsive', d.h. das Fenster kann beliebig vergrößert, und durch eingefügte Scrollbalken auch verkleinert werden, ohne dass die Oberfläche leere oder überlappende Bereiche enthält oder an Funktionialität verliert. 
 Einige Einstellungsmöglichkeiten wurden zusätzlich mit Hover-Tooltip-Texten versehen, sodass auch zu lange Code-Kommentare, die Speicher-Adressen und die Laufzeit pro Befehl dargestellt werden können. 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/gui-dark}
+	\caption{Die Oberfläche im Dark-Mode}
+	\label{gui-dark}
+\end{figure}
+\section{Funktionsweise}
+Jeder oben genannte Bereich besteht aus mindestens einer Klasse. Für die Tabellen, die in den Registern auf der linken Seite, der Speicherdarstellung, und in der Code-Anzeige zum Einsatz kamen, wurden 'JTables' der Java-Swing Bibliothek verwendet. Das gesamte Layout beruht auf dem GridBagLayout und ist deshalb komplett responsiv. Sobald es eine Änderung in einem Bereich gibt, werden sofort alle anderen geupdatet, damit immer alles korrekt dargestellt wird. Folgende Besonderheiten gibt es zu den einzelnen Bereichen:
+\begin{itemize}
+	\item Die Port-Register in der linken, oberen Ecke lassen sich nur verändern, wenn die Tris-Register auf Eingang, d.h. auf 1 eingestellt sind.
+	\item Die Speichertabelle auf der rechten Seite zeigt über ein Hover-Event die jeweilige Adresse als Tooltip an. Somit kann eine Adresse leichter gefunden werden. 
+	\item Für die Code-Anzeige gibt es ebenfalls Tooltips der einzelnen Zeilen, in welchen mögliche Kommentare dargestellt sind. Dadurch lassen sich auch zu lange Kommentare, die über den Fensterrand hinausgehen würden, lesen. 
+\end{itemize}
 
-\section{Darstellung}
