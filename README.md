@@ -4,7 +4,7 @@ PICsimu-doc ist die Dokumentation zum Java-Projekt [PICsimu](https://github.com/
 
 ## Compiling / Building
 
-*TO BE DONE*
+Zum selbstständigen Kompilieren wird eine vollständige Version von [TeX Live](https://www.tug.org/texlive/) vorausgesetzt (Installation unter Linux mit `sudo apt-get install texlive-full`). Im lokalen Git-Repository den Befehl `pdflatex main.tex && pdflatex main.tex` ausführen.
 
 ## Download
 
