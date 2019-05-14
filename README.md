@@ -8,7 +8,7 @@ Zum selbstständigen Kompilieren wird eine vollständige Version von [TeX Live](
 
 ## Download
 
-Für diese Projekt-Dokumentation wird - bis auf Weiteres - kein PDF-Download zur Verfügung gestellt. Siehe *Compiling / Building* oder im Programm [PICsimu](https://github.com/teamwaldstadt/PICsimu) unter *Info -> Dokumentation*.
+Download der PDF [HIER](https://picsimu.teamwaldstadt.de/doc/PICsimu-doc.pdf). Siehe auch *Compiling / Building* oder im Programm [PICsimu](https://github.com/teamwaldstadt/PICsimu) unter *Info -> Dokumentation*.
 
 ## Lizenz
 
